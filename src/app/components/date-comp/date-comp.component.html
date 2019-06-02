@@ -1,17 +1,19 @@
-<span>Choose the date of your event</span>
+<h4>Choose the date of your event</h4>
 
 <form clrForm clrLayout="horizontal"
 [formGroup]="dateForm" 
 (ngSubmit)="confirmDate(dateForm.value)">
 
   <ul>
+    <clr-select-container>
       <label>Day</label>
-      <select formControlName = "day" id="day">
+      <select clrSelect formControlName = "day" id="day" required>
         <option  *ngFor="let loop of counter(31); let x = index" value = "{{x+1}}">{{x+1}}</option>
       </select>
-
+    </clr-select-container>
+    <clr-select-container>
       <label>Month</label>
-      <select formControlName = "month" id="month">
+      <select clrSelect formControlName = "month" id="month" required>
         <option value = "January">January</option>
         <option value = "February">February</option>
         <option value = "March">March</option>
@@ -25,12 +27,13 @@
         <option value = "November">November</option>
         <option value = "December">December</option>
       </select>
-      
+    </clr-select-container>
+    <clr-select-container>
       <label>Year</label>
-      <select formControlName = "year" id="year">
+      <select clrSelect formControlName = "year" id="year" required>
         <option *ngFor="let loop of counter(31); let x = index" value = {{x+1990}}>{{1990+x}}</option>
       </select>
-
+    </clr-select-container>
   </ul>
 
   <button class="btn btn-outline" type="submit">Confirm Date</button>

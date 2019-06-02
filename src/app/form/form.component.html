@@ -1,26 +1,28 @@
 
 <h2>Event Creator</h2>
-<form clrForm clrLayout="horizontal"
+<form clrForm 
 [formGroup]="addEventForm" 
 (ngSubmit)="addToCalendar(addEventForm.value)">
+<div class="crl-form-control">
   <ul>
-   
+    <clr-select-container>
       <label>Type</label>
-      <select formControlName = "type" id="type">
+      <select clrSelect formControlName = "type" id="type">
         <option value = "Work">Work</option>
         <option value = "Holiday">Holiday</option>
       </select>
-   
+    </clr-select-container>
 
       <clr-input-container>
         <label>Name of activity</label>
-        <input clrInput type = "text" formControlName="name" id = "name">
+        <input clrInput type = "text" formControlName="name" id = "name" placeholder=" name ">
       </clr-input-container>
 
     <app-date-comp
     (date)="addDate($event)">
     </app-date-comp>
   </ul>
+</div>
 
   <button class="btn btn-primary" type="submit">Add to calendar</button>
   

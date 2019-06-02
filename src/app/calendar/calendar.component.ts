@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MiddleManService } from "../services/middle-man.service";
 import { EventEntry } from '../EventEntry';
 
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
 
@@ -20,7 +21,9 @@ export class CalendarComponent implements OnInit {
       console.log(comin);
       this.entries = comin;
     });
-    
+
+
+
   }
 
 

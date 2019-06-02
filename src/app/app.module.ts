@@ -13,13 +13,15 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MiddleManService } from './services/middle-man.service';
 import { CalendarComponent } from './calendar/calendar.component';
+import { EventSortPipe } from 'src/sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DateCompComponent,
     FormComponent,
-    CalendarComponent
+    CalendarComponent,
+    EventSortPipe
   ],
   imports: [
     BrowserModule,
