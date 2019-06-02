@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder } from "@angular/forms";
+import { DateObj } from 'src/app/DateObj';
+
 @Component({
   selector: 'app-date-comp',
   templateUrl: './date-comp.component.html',
   styleUrls: ['./date-comp.component.css']
 })
+
 export class DateCompComponent implements OnInit {
   
   dateForm;
- // years = Array(5).fill().map((x,i)=>i);
- counter = Array;
+
+ counter = Array; // helps *ngFor in HTML
+
+ date = new DateObj ();
   
   constructor(
     private formbuilder: FormBuilder,
@@ -26,9 +31,10 @@ export class DateCompComponent implements OnInit {
   }
 
   confirmDate(value){
-    console.log(value.day)
-    console.log(value.month)
-    console.log(value.year)
+     this.date.day = value.day;
+     this.date.month = value.month;
+     this.date.year = value.year;
+     console.log(this.date.day);
   }
 
 }

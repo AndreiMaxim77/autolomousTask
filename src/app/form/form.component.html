@@ -16,9 +16,13 @@
         <input clrInput type = "text" formControlName="name" id = "name">
       </clr-input-container>
 
-    <app-date-comp></app-date-comp>
+    <app-date-comp
+    (date)="dateObj">
+    </app-date-comp>
   </ul>
 
   <button class="btn btn-primary" type="submit">Add to calendar</button>
+  
+  <button class="btn btn-secondary" [routerLink] = "['/calendar']">Show Calendar</button>
 
 </form>

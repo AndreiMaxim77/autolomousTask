@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from "@angular/forms";
+import { MiddleManService } from '../services/middle-man.service';
+import { EventEntry } from '../EventEntry';
+import { DateObj } from '../DateObj';
+
 
 @Component({
   selector: 'app-form',
@@ -9,6 +13,14 @@ import { FormBuilder } from "@angular/forms";
 export class FormComponent implements OnInit {
 
   addEventForm;
+  dateObj = new DateObj ();
+
+  entry: EventEntry = {
+    type: '',
+    name: '',
+    date: '',
+  }
+
 
   onSubmit(){
     console.log("Pressed Submit!")
@@ -16,6 +28,7 @@ export class FormComponent implements OnInit {
 
   constructor(
     private formbuilder: FormBuilder,
+    private manService: MiddleManService,
   ) {
     this.addEventForm = this.formbuilder.group({
       type: '',
@@ -24,11 +37,14 @@ export class FormComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
 
-  addToCalendar(value){
-    console.log(value.type);
-    console.log(value.name);
+  addToCalendar(value){ // Add EventEntry to database! 
+    this.entry.type = value.type;
+    this.entry.name = value.name;
+    this.entry.date = this.dateObj.autolomousFormat();
+    this.manService.addEntry(this.entry);
   }
 
 }
