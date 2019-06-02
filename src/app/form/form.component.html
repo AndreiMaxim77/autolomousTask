@@ -1,31 +1,50 @@
 
-<h2>Event Creator</h2>
-<form clrForm 
-[formGroup]="addEventForm" 
-(ngSubmit)="addToCalendar(addEventForm.value)">
-<div class="crl-form-control">
-  <ul>
-    <clr-select-container>
-      <label>Type</label>
-      <select clrSelect formControlName = "type" id="type">
-        <option value = "Work">Work</option>
-        <option value = "Holiday">Holiday</option>
-      </select>
-    </clr-select-container>
+<header class="header-6">
+    <div class="branding title">
+      <a class="nav-link">
+          Event Planner
+      </a>
+    </div>
+    <div class="header-nav">
+        <a [routerLink] = "['/calendar']"  class="nav-link nav-text">Calendar</a>
+        <a [routerLink]= "['']" class="active nav-link nav-text">Add Event</a>
+    </div>
+</header>
 
-      <clr-input-container>
-        <label>Name of activity</label>
-        <input clrInput type = "text" formControlName="name" id = "name" placeholder=" name ">
-      </clr-input-container>
+<div class="content-container">
+  <div class="clr-row">
+    <div class="content-area clr-col clr-align-self-center">
+      <h2>Event Creator</h2>
+      <form clrForm class="clr-form" 
+      [formGroup]="addEventForm" 
+      (ngSubmit)="addToCalendar(addEventForm.value)">
+        <div class="crl-form-control ">
+          <ul >
+            <clr-select-container>
+              <label class= "clr-control-label">Type</label>
+              <select clrSelect formControlName = "type" id="type" required>
+                <option value = "Work">Work</option>
+                <option value = "Holiday">Holiday</option>
+              </select>
+            </clr-select-container>
 
-    <app-date-comp
-    (date)="addDate($event)">
-    </app-date-comp>
-  </ul>
+            <clr-input-container>
+              <label>Name of activity</label>
+              <input clrInput type = "text" formControlName="name" id = "name" placeholder=" name " required>
+            </clr-input-container>
+
+            <app-date-comp
+            (date)="addDate($event)">
+            </app-date-comp>
+          </ul>
+          
+        </div>
+          
+          <button class="btn btn-primary" type="submit">Add to calendar</button>
+          
+          <button class="btn btn-secondary" [routerLink] = "['/calendar']">Show Calendar</button>
+          
+        </form>
+   </div>
+  </div>
 </div>
-
-  <button class="btn btn-primary" type="submit">Add to calendar</button>
-  
-  <button class="btn btn-secondary" [routerLink] = "['/calendar']">Show Calendar</button>
-
-</form>

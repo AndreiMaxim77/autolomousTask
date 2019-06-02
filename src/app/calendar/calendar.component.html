@@ -1,17 +1,39 @@
 
-<h2>MyAppointments</h2>
-<div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
-
-    <div *ngFor="let x of entries | sort; let i=index"> <!-- all the warnings are from the custom pipe-->
-        <div *ngIf="i<10" class = "card">
-        <div class="card-header">{{x.name}}</div>
-        <!--<h3>{{x.id}}</h3>-->
-        <div class="card-title">{{x.type}}</div>
-        <div class="card-text">
-            <h3>{{x.date}}</h3>
-            <p>Time Uploaded: {{x.timeUploaded | date: "long"}}</p>
-            </div>
+<header class="header-6">
+        <div class="branding title">
+          <a class="nav-link">
+              Event Planner
+          </a>
         </div>
+        <div class="header-nav">
+            <a [routerLink] = "['/calendar']"  class="active nav-link nav-text">Calendar</a>
+            <a [routerLink]= "['']" class="nav-link nav-text">Add Event</a>
+        </div>
+    </header>
+
+<div class="content-container">
+    <div class="content-area">
+        <div style="text-align: center">
+            
+        
+        <h2>MyAppointments</h2>
+        
+        <div *ngFor="let x of entries | sort; let i=index"> <!-- all the warnings are from the custom pipe-->
+            <div *ngIf="i<10" class = "card ">
+            <div style="text-align: center">
+                <div class="card-header ">{{x.name}}</div>
+                <!--<h3>{{x.id}}</h3>-->
+                <div class="card-title">{{x.type}}</div>
+                <div class="card-text">
+                    <h3>{{x.date}}</h3>
+                    <p>Time Uploaded: {{x.timeUploaded | date: "long"}}</p>
+                    </div>
+               </div>
+            </div>
+        
     </div>
+    </div>
+
     
+    </div>
 </div>
