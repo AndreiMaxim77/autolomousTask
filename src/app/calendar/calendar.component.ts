@@ -20,6 +20,7 @@ export class CalendarComponent implements OnInit {
       console.log(comin);
       this.entries = comin;
     });
+    
   }
 
 

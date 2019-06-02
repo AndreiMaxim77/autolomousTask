@@ -1,8 +1,14 @@
 
-<h1>Here you Go:</h1>
-<div *ngFor="let x of entries">
- <h2>{{x.name}}</h2>
- <h3>{{x.id}}</h3>
- <h3>{{x.type}}</h3>
- <h3>{{x.date}}</h3>
+<h2>MyAppointments</h2>
+<div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+
+    <div class = "card" *ngFor="let x of entries">
+        <div class="card-header">{{x.name}}</div>
+        <!--<h3>{{x.id}}</h3>-->
+        <div class="card-title">{{x.type}}</div>
+        <div class="card-text">
+            <h3>{{x.date}}</h3>
+        </div>
+    </div>
+    
 </div>

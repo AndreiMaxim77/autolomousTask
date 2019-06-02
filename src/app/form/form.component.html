@@ -1,4 +1,5 @@
 
+<h2>Event Creator</h2>
 <form clrForm clrLayout="horizontal"
 [formGroup]="addEventForm" 
 (ngSubmit)="addToCalendar(addEventForm.value)">
@@ -17,7 +18,7 @@
       </clr-input-container>
 
     <app-date-comp
-    (date)="dateObj">
+    (date)="addDate($event)">
     </app-date-comp>
   </ul>
 

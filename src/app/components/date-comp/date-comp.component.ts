@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from "@angular/forms";
 import { DateObj } from 'src/app/DateObj';
 
@@ -14,7 +14,8 @@ export class DateCompComponent implements OnInit {
 
  counter = Array; // helps *ngFor in HTML
 
- date = new DateObj ();
+ @Output() date = new EventEmitter<DateObj> ();
+ dateObj = new DateObj();
   
   constructor(
     private formbuilder: FormBuilder,
@@ -31,10 +32,11 @@ export class DateCompComponent implements OnInit {
   }
 
   confirmDate(value){
-     this.date.day = value.day;
-     this.date.month = value.month;
-     this.date.year = value.year;
-     console.log(this.date.day);
+     this.dateObj.day = value.day;
+     this.dateObj.month = value.month;
+     this.dateObj.year = value.year;
+     this.date.emit(this.dateObj);
+    // console.log(this.date.autolomousFormat());
   }
 
 }

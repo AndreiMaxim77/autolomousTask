@@ -13,12 +13,13 @@ import { DateObj } from '../DateObj';
 export class FormComponent implements OnInit {
 
   addEventForm;
-  dateObj = new DateObj ();
+  now = Date.now();
 
   entry: EventEntry = {
     type: '',
     name: '',
     date: '',
+    timeUploaded: 0,
   }
 
 
@@ -40,10 +41,14 @@ export class FormComponent implements OnInit {
 
   }
 
+  addDate(d: DateObj){
+    this.entry.date = d.autolomousFormat();
+  }
+
   addToCalendar(value){ // Add EventEntry to database! 
     this.entry.type = value.type;
     this.entry.name = value.name;
-    this.entry.date = this.dateObj.autolomousFormat();
+    this.entry.timeUploaded = Date.now();
     this.manService.addEntry(this.entry);
   }
 

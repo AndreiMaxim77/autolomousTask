@@ -4,6 +4,6 @@ export class DateObj {
     year?: number;
 
     autolomousFormat(){
-        return ''+this.day+this.month+this.year
+        return ''+this.day+' / '+this.month+' / '+this.year
     }
 }
