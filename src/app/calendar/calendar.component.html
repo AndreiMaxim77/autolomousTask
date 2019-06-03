@@ -17,8 +17,10 @@
             
         
         <h2>MyAppointments</h2>
-        
-        <div *ngFor="let x of entries | sort; let i=index"> <!-- all the warnings are from the custom pipe-->
+        <!--I was using [let x of entries | sort] but Angular didn't like some
+        thing about the pipe. Although it worked, I was getting some warnings
+        thus I've changed sorting to a different approach (in the service)-->
+        <div *ngFor="let x of entries; let i=index"> <!-- all the warnings are from the custom pipe-->
             <div *ngIf="i<10" class = "card ">
             <div style="text-align: center">
                 <div class="card-header ">{{x.name}}</div>

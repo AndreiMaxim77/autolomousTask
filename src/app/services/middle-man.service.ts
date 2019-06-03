@@ -15,7 +15,8 @@ export class MiddleManService {
 
   constructor( public afs: AngularFirestore) { 
 
-    this.entriesCollection = this.afs.collection("PlannerEntries");
+    this.entriesCollection = this.afs.collection("PlannerEntries", 
+    ref => ref.orderBy("timeUploaded", "desc"));
 
     // this.entries = this.afs.collection("PlannerEntries").valueChanges();
     this.entries = this.entriesCollection.snapshotChanges().pipe(map(changes => {

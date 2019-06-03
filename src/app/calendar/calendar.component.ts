@@ -14,18 +14,13 @@ export class CalendarComponent implements OnInit {
 
   constructor(
     public manService: MiddleManService,
-  ) { console.log('No works');}
+  ) { console.log('loaded Calendar');}
 
   ngOnInit() {
     this.manService.getEntries().subscribe(comin => {
       console.log(comin);
       this.entries = comin;
     });
-
-
-
   }
-
-
 
 }
